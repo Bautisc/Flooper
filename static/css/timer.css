@@ -1,0 +1,61 @@
+/* Body background and font */
+body {
+  background: #181818;
+  font-family: "Arial";
+  padding: unset;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+/* Main heading */
+.heading {
+  color: #bae8e8;
+}
+
+/* Countdown timer */
+.timer {
+  color: #ffffff;
+  text-align: center;
+  width: 21rem;
+  height: 21rem;
+  border: 5px solid #ffffff;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row {
+  width: 100%;
+}
+
+/* remove the padding on the play button */
+.btn {
+  padding: 0;
+}
+
+/* play and reset icons */
+.fa-play,
+.fa-redo-alt {
+  color: #ffffff;
+  border: 2px solid transparent;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.fa-play:hover,
+.fa-redo-alt:hover {
+  color: #ffffff;
+  border: 3px solid #ffc107;
+  transition: 0.3s ease;
+}
+
+/* Dynamic class */
+/* Make the message visible */
+.show_message {
+  display: block;
+  padding: 1rem 0;
+  color: #272343;
+  background: #e3f6f5;
+  border-radius: 0.5rem;
+  transition: 0.5s ease;
+}

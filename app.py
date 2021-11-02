@@ -1,7 +1,6 @@
 import MySQLdb
 from flask import Flask, config, jsonify, request, session, redirect, url_for
 from flask.templating import render_template
-from flask_wtf import FlaskForm
 from flask_mysqldb import MySQL
 from config import config
 import re

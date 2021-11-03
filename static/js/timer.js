@@ -5,7 +5,7 @@ var session_count = 00;
 
 // Audio files
 var click_sound = new Audio("static/mp3/click.mp3");
-var bell = new Audio("static/mp3/bell.mp3");
+var bell = new Audio("../static/mp3/bell.mp3");
 
 // Starting template for the timer
 function template() {

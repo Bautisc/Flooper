@@ -1,0 +1,29 @@
+[33mcommit c83484d63e6fe8b6bd480ffb9534ac95e4093421[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/LDAfeature[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mLDAfeature[m[33m)[m
+Author: LDAntelo <luisdiegoantelo0@gmail.comgit config --listgit config --listgit config --global user.name LDAntelogit.config --global user.email luisdiegoantelo0@gmail.com>
+Date:   Tue Nov 2 22:08:03 2021 -0300
+
+    general bux fixing
+
+[33mcommit aaa4503c0c5c63aebb0234d6115f3169d798e018[m
+Author: LDAntelo <luisdiegoantelo0@gmail.comgit config --listgit config --listgit config --global user.name LDAntelogit.config --global user.email luisdiegoantelo0@gmail.com>
+Date:   Tue Nov 2 21:25:44 2021 -0300
+
+    bug fixing general
+
+[33mcommit d89515b5658b28b69b6f2675e1e291f663b3aaa8[m
+Author: LDAntelo <luisdiegoantelo0@gmail.comgit config --listgit config --listgit config --global user.name LDAntelogit.config --global user.email luisdiegoantelo0@gmail.com>
+Date:   Tue Nov 2 18:46:25 2021 -0300
+
+    timer styleado
+
+[33mcommit 76b8e46788a7bcdc0bd602deb2c68d1a7ee7235c[m
+Author: LDAntelo <luisdiegoantelo0@gmail.comgit config --listgit config --listgit config --global user.name LDAntelogit.config --global user.email luisdiegoantelo0@gmail.com>
+Date:   Tue Nov 2 17:49:42 2021 -0300
+
+    Javascript del timer
+
+[33mcommit bb6c290b8bfaaf185660b16d7ff316e192583247[m
+Author: Bautista Sanguinetti <bautiscsc.123@gmail.com>
+Date:   Tue Nov 2 16:50:56 2021 -0300
+
+    Agregando todo el proyecto

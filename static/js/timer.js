@@ -30,13 +30,8 @@ function start_timer() {
   var seconds_interval = setInterval(secondsTimer, 1000);
 
   // Functions
-  // Function for minute counter
-  function minutesTimer() {
-    session_minutes = session_minutes - 1;
-    document.getElementById("minutes").innerHTML = session_minutes;
-  }
+
   //Function for session counter
-  
   function sessionsCounter() {
     session_count = 1;
     if (session_seconds <= 0) {
@@ -45,7 +40,11 @@ function start_timer() {
       }
     }
   }
-
+  // Function for minute counter
+  function minutesTimer() {
+    session_minutes = session_minutes - 1;
+    document.getElementById("minutes").innerHTML = session_minutes;
+  }
   // Function for second counter
   function secondsTimer() {
     session_seconds = session_seconds - 1;

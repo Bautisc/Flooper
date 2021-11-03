@@ -62,3 +62,10 @@ body {
   border-radius: 0.5rem;
   transition: 0.5s ease;
 }
+
+#sessions{
+  width: 100%;
+  font-size:30px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}

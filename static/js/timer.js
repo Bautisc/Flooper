@@ -57,7 +57,8 @@ function start_timer() {
         // Clears the interval i.e. stops the counter
         clearInterval(minutes_interval);
         clearInterval(seconds_interval);
-
+        session_count = session_count -1;
+        document.getElementById("sessions").innerHTML = "Sesión: " + session_count;
         // Add the message to the html
         document.getElementById("done").innerHTML =
           "Session completed!! Take a break";

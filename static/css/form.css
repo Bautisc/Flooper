@@ -180,3 +180,9 @@ li.dropdown {
 #Nav-brand{
 position: relative;
 }
+
+/*footer*/
+.footer{
+  height:1px;
+  background-color:#2c2a2a;
+}

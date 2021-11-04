@@ -1,7 +1,10 @@
 import MySQLdb
 from flask import Flask, config, jsonify, request, session, redirect, url_for
 from flask.templating import render_template
+<<<<<<< HEAD
 from flask_login import LoginManager
+=======
+>>>>>>> ae3d63d029cd01682f97e3ff465e216f346759f9
 from flask_mysqldb import MySQL
 from config import config
 

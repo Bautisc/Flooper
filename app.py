@@ -1,13 +1,14 @@
 import MySQLdb
 from flask import Flask, config, jsonify, request, session, redirect, url_for
 from flask.templating import render_template
-from flask_wtf import FlaskForm
+from flask_login import LoginManager
 from flask_mysqldb import MySQL
 from config import config
-import re
 
 
 app = Flask(__name__)
+
+app.secret_key = "ab947a9e8c14bde1b32419e5af7abaee6b4f77c055a46d3685eba3850bcac3f2"
 
 mysql = MySQL(app)
 
@@ -18,11 +19,10 @@ mysql = MySQL(app)
 def pag_principal():
     return render_template('index.html')
 
-# cursor = mysql.connection.cursor()
-#         sql = "SELECT id_tarea, Titulo, Estado FROM tareas WHERE id_tarea = '{0}'".format(
-#             id_tarea)
-#         cursor.execute(sql)
-#         datos = cursor.fetchone()
+# Login - Register -Logout#
+
+
+login_manager = LoginManager()
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -64,7 +64,20 @@ def register():
         email = userDetails['Email']
         cursor = mysql.connection.cursor()  # MySQLdb.cursors.DictCursor
         cursor.execute(
-            'INSERT INTO usuarios (Nombre, Contraseña, email) VALUES(%s, %s, %s)', (username, password, email))
+            'SELECT * FROM accounts WHERE username = %s', (username,))
+        account = cursor.fetchone()
+        # If account exists show error and validation checks
+        if account:
+            msg = 'Nombre de usuario ocupado.'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+            msg = 'Ingrese una dirrecion email valida.'
+        elif not re.match(r'[A-Za-z0-9]+', username):
+            msg = 'El nombre de usuario solo puede contener letras y números'
+        elif not username or not password or not email:
+            msg = 'Porfavor completa todos los campos del formulario'
+        else:
+            cursor.execute(
+                'INSERT INTO usuarios (Nombre, Contraseña, email) VALUES(%s, %s, %s)', (username, password, email))
         mysql.connection.commit()
         cursor.close()
         return "Registro completado con exito."

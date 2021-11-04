@@ -12,24 +12,37 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/css/form.css" />
-    <link rel="stylesheet" href="../static/css/paginas.css" />
-    <link rel="stylesheet" href="../files/icons/node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../static/css/index.css" />
     <link rel="stylesheet" href="../static/css/timer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
   </head>
 
   <body>
     <!--NAVBAR-->
-    <div>
-      <ul>
-        <div>
-          <li>
-            <a class="navbar-brand" href="/"><img src="../static/img/nav-icon.png" alt="" width="50" /></a>
+    
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="/"><img src="../static/img/nav-icon2.png" id="navicon2"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle login_right" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="bi bi-person-video"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/login">Login</a>
+              <a class="dropdown-item" href="/register">Register</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Forgot your password?</a>
+            </div>
           </li>
-          <li style="float:right"><a href="/login"> Inicio de sesión </a></li>
-        </div>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    </nav>
+
     <!--Reloj-->
     <div class="container">
       <!-- Heading -->
@@ -70,9 +83,17 @@
 
     <!--Footer-->
     <footer>
-      <div class="footer">
-        <li style="float:right"><a href="/about">about</a></li>
-      </div>
+      <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark nav-Color", id="about">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav nav-Color">
+              <li class="nav-item">
+                <a class="nav-link active nav-Color" aria-current="page" href="/">about</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </footer>
     
 <!--IMPORTS-->
@@ -80,9 +101,9 @@
 <script src="https://kit.fontawesome.com/996973c893.js"></script>
 <!-- Boot -->
 <script src="../static/js/popper.min.js"></script>
-<!-- <script src="/static/js/bootstrap.min.js"></script> -->
+<script src="/static/js/bootstrap.min.js"></script>
 <!-- JS propios -->
-<!-- <script src="../static/js/cronometro.js"></script> -->
+<script src="../static/js/cronometro.js"></script>
 <script src="../static/js/timer.js"></script>
   </body>
 </html>

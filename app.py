@@ -8,7 +8,6 @@ from config import config
 
 app = Flask(__name__)
 
-app.secret_key = "ab947a9e8c14bde1b32419e5af7abaee6b4f77c055a46d3685eba3850bcac3f2"
 
 mysql = MySQL(app)
 
@@ -25,7 +24,7 @@ def home():
 @app.route('/Flooper', methods=['GET'])
 def pag_principal():
     if 'loggedin' in session:
-        return render_template('index.html', username=session['username'])
+        return render_template('home.html', username=session['username'])
     return redirect(url_for('/'))
 
 # Login - Register -Logout#
@@ -178,6 +177,8 @@ def actualizar_tarea(id_tarea):
 def pagina_no_encontrada(error):
     return "<h1>La página que intentas buscar no existe...</h1>", 404
 
+
+app.secret_key = "ab947a9e8c14bde1b32419e5af7abaee6b4f77c055a46d3685eba3850bcac3f2"
 
 if __name__ == '__main__':
     app.config.from_object(config['desarrollo'])

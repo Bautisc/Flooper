@@ -1,7 +1,9 @@
 /*body*/
 body{
-  background-color: #181818;
+  background-color:#041922;
+  /*paletas: #FF143D*/
 }
+
 /*navbar*/
 #home{
   background-color: #181818;
@@ -12,13 +14,15 @@ body{
 #navicon2{
   width: 120px;
 }
-.login_right{
-  width: 150px;
+
+/*Timer container*/
+.timer-cont{
+  padding: 5%;
 }
 
 /*Footer*/
 #about{
-  background-color:#292929;
+  background-color:#020e13;
   height:5%;
-  text-align:right;
+  float:right;
 }

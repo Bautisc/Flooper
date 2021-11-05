@@ -1,10 +1,7 @@
 import MySQLdb
 from flask import Flask, config, jsonify, request, session, redirect, url_for
 from flask.templating import render_template
-<<<<<<< HEAD
 from flask_login import LoginManager
-=======
->>>>>>> ae3d63d029cd01682f97e3ff465e216f346759f9
 from flask_mysqldb import MySQL
 from config import config
 
@@ -19,8 +16,17 @@ mysql = MySQL(app)
 
 
 @app.route('/', methods=['GET'])
+def home():
+    # Output message if something goes wrong...
+    msg = ''
+    return render_template('index.html', msg='')
+
+
+@app.route('/Flooper', methods=['GET'])
 def pag_principal():
-    return render_template('index.html')
+    if 'loggedin' in session:
+        return render_template('index.html', username=session['username'])
+    return redirect(url_for('/'))
 
 # Login - Register -Logout#
 
@@ -42,10 +48,10 @@ def login():
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
-            msg = 'Logged in successfully !'
+            msg = 'Login exitoso!'
             return render_template('index.html', msg=msg)
         else:
-            msg = 'Incorrect username / password !'
+            msg = 'Usuario o contraseña incorrectos!'
     return render_template('login.html', msg=msg)
 
 
@@ -54,20 +60,19 @@ def logout():
     session.pop('loggedin', None)
     session.pop('ID', None)
     session.pop('Nombre', None)
-    return redirect(url_for('/login'))
+    return redirect(url_for('/'))
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     msg = ''
     if request.method == 'POST':
-        userDetails = request.form
-        username = userDetails['Nombre']
-        password = userDetails['Contraseña']
-        email = userDetails['Email']
+        username = request.form['Nombre']
+        password = request.form['Contraseña']
+        email = request.form['Email']
         cursor = mysql.connection.cursor()  # MySQLdb.cursors.DictCursor
         cursor.execute(
-            'SELECT * FROM accounts WHERE username = %s', (username,))
+            'SELECT * FROM accounts WHERE Nombre = %s', (username,))
         account = cursor.fetchone()
         # If account exists show error and validation checks
         if account:

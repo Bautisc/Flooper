@@ -61,7 +61,7 @@ function start_timer() {
         document.getElementById("sessions").innerHTML = "Sesión: " + session_count;
         // Add the message to the html
         document.getElementById("done").innerHTML =
-          "Session completed!! Take a break";
+          "Sesión completada!! Toma un descanso";
 
         // Make the html message div visible
         document.getElementById("done").classList.add("show_message");

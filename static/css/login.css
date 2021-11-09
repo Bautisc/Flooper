@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 body {
-  background-color: #333;
+  background-color: #041922;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -177,6 +177,6 @@ li.dropdown {
   display: block;
 }
 
-#Nav-brand{
-position: relative;
+#Nav-brand {
+  position: relative;
 }

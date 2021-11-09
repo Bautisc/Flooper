@@ -6,6 +6,7 @@ class Dev_config():
     MYSQL_USER = 'root'
     MYSQL_PASSWORD = 'Fl00_pEr'
     MYSQL_DB = 'flooper_db'
+    MYSQL_CURSORCLASS = "DictCursor"
 
 
 config = {

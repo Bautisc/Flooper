@@ -18,19 +18,6 @@ def index():
     return render_template('index.html', msg='')
 
 
-<<<<<<< HEAD
-@app.route('/Flooper/<username>', methods=['GET'])
-def pag_principal(username):
-    if 'loggedin' in session:
-        return render_template('home.html', username=session['username'])
-    return redirect(url_for('/'))
-=======
-@app.route('/home', methods=['GET'])
-def home():
-    return render_template('home.html')
->>>>>>> master
-
-
 @app.route('/flooper/<username>', methods=['GET'])
 def pag_principal(username):
     print(username)
@@ -39,12 +26,6 @@ def pag_principal(username):
         return redirect(url_for('login', username=session['username']))
     return render_template('home.html')
 
-<<<<<<< HEAD
-=======
-# Login - Register -Logout#
-
-
->>>>>>> master
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ""
@@ -52,15 +33,9 @@ def login():
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
-<<<<<<< HEAD
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(
             'SELECT * FROM usuarios WHERE username = % s AND password = % s', (username, password, ))
-=======
-        cursor = mysql.connection.cursor()  # MySQLdb.cursors.DictCursor
-        cursor.execute(
-            'SELECT * FROM usuarios WHERE username = % s AND password = % s', (username, password))
->>>>>>> master
         account = cursor.fetchone()
         print(username)
         print(password)
@@ -94,11 +69,7 @@ def register():
         email = request.form['Email']
         cursor = mysql.connection.cursor()  # MySQLdb.cursors.DictCursor
         cursor.execute(
-<<<<<<< HEAD
             'SELECT * FROM usuarios WHERE username = %s', (username,))
-=======
-            'SELECT * FROM accounts WHERE username = %s', (username,))
->>>>>>> master
         account = cursor.fetchone()
         # If account exists show error and validation checks
         if account:
@@ -111,11 +82,7 @@ def register():
             msg = 'Porfavor completa todos los campos del formulario'
         else:
             cursor.execute(
-<<<<<<< HEAD
                 'INSERT INTO usuarios (username, password, Email) VALUES(%s, %s, %s)', (username, password, email))
-=======
-                'INSERT INTO usuarios (username, password, email) VALUES(%s, %s, %s)', (username, password, email))
->>>>>>> master
         mysql.connection.commit()
         cursor.close()
         return "Registro completado con exito."

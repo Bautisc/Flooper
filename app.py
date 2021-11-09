@@ -31,6 +31,8 @@ def pag_principal(username):
         return redirect(url_for('login', username=session['username']))
     return render_template('home.html')
 
+# Login - Register -Logout#
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

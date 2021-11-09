@@ -16,9 +16,18 @@ body {
   font-size: 40px;
   opacity: 1;
 }
+#navicon2 {
+  width: 120px;
+}
+/*Footer*/
+#about {
+  background-color: #020e13;
+  height: 5%;
+  float: right;
+}
 
 .nav-Color {
-  background-color: #181818;
+  background-color: #ffc107;
   list-style-type: none;
   margin: 0;
   padding: 0;

@@ -1,28 +1,29 @@
 /*body*/
-body{
-  background-color:#041922;
+body {
+  background-color: #041922;
   /*paletas: #FF143D*/
 }
 
 /*navbar*/
-#home{
+#home {
   background-color: #181818;
 }
-.navbar{
+.navbar {
   background-color: #ffc107;
+  padding-left: 150px;
 }
-#navicon2{
+#navicon2 {
   width: 120px;
 }
 
 /*Timer container*/
-.timer-cont{
+.timer-cont {
   padding: 5%;
 }
 
 /*Footer*/
-#about{
-  background-color:#020e13;
-  height:5%;
-  float:right;
+#about {
+  background-color: #020e13;
+  height: 5%;
+  float: right;
 }

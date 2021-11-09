@@ -27,8 +27,8 @@
       <div class="register-form">
         <form action="{{ url_for('register') }}" class="form" id="registerForm1" method="POST">
           <p size="40px" class="title-flooper title-background">Registrarse</p>
-          <input type="text" placeholder="Nombre de Usuario" name="Nombre" />
-          <input type="password" placeholder="Contraseña" name="Contraseña" />
+          <input type="text" placeholder="Nombre de Usuario" name="username" />
+          <input type="password" placeholder="Contraseña" name="password" />
           <input type="email" placeholder="Correo electronico" name="Email" />
           <button type="submit">Crear cuenta</button>
           <p class="message">Ya tienes una cuenta? <a href="{{url_for('login')}}">Iniciar sesión</a></p>

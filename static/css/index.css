@@ -15,7 +15,9 @@ body {
 #navicon2 {
   width: 120px;
 }
-
+.nav-item{
+  padding-right: 200px;
+}
 /*Timer container*/
 .timer-cont {
   padding: 5%;

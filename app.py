@@ -18,6 +18,11 @@ def index():
     return render_template('index.html', msg='')
 
 
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('home.html')
+
+
 @app.route('/flooper/<username>', methods=['GET'])
 def pag_principal(username):
     print(username)
@@ -26,6 +31,7 @@ def pag_principal(username):
         return redirect(url_for('login', username=session['username']))
     return render_template('home.html')
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ""
@@ -33,9 +39,9 @@ def login():
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)  #
         cursor.execute(
-            'SELECT * FROM usuarios WHERE username = % s AND password = % s', (username, password, ))
+            'SELECT * FROM usuarios WHERE username = % s AND password = % s', (username, password))
         account = cursor.fetchone()
         print(username)
         print(password)

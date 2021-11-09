@@ -28,8 +28,13 @@
         <div class="fw-bolder fw-Italic"><p size="40px" class="title-flooper title-background">Ingresar</p></div>
         <form action="{{ url_for('login') }}" method="POST" class="login-form" id="log_form">
           <div class="msg">{{ msg }}</div>
+<<<<<<< HEAD
           <input type="text" placeholder="Ingresar Usuario" name="username" />
           <input type="password" placeholder="Introduzca su Contraseña" name="password" />
+=======
+          <input type="text" placeholder="Usuario" name="username" />
+          <input type="password" placeholder="Contraseña" name="password" />
+>>>>>>> master
           <button type="submit">Ingresar</button>
           <p class="message" id="desplegar">No tienes cuenta? <a href="{{url_for('register')}}">Crear una cuenta</a></p>
           <hr />
@@ -62,14 +67,22 @@
 
         var form = $(this);
         var url = "/login";
+<<<<<<< HEAD
         console.log(url);
+=======
+        console.log(form);
+>>>>>>> master
 
         $.ajax({
           type: "POST",
           url: url,
-          data: form.serialize(), // serializes the form's elements.
+          data: form.serialize(),
           success: function (data) {
+<<<<<<< HEAD
             window.location.href = "/Flooper/" + $('input[name="username"]').val();
+=======
+            window.location.href = "/home?username=" + $('input[name="username"]').val();
+>>>>>>> master
           },
           error: function (error) {
             alert(error);

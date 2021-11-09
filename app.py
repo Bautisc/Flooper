@@ -1,3 +1,4 @@
+import re
 import MySQLdb
 from flask import Flask, config, jsonify, request, session, redirect, url_for
 from flask.templating import render_template
@@ -11,39 +12,68 @@ mysql = MySQL(app)
 
 
 @app.route('/', methods=['GET'])
-def home():
+def index():
     # Output message if something goes wrong...
     msg = ''
     return render_template('index.html', msg='')
 
 
+<<<<<<< HEAD
 @app.route('/Flooper/<username>', methods=['GET'])
 def pag_principal(username):
     if 'loggedin' in session:
         return render_template('home.html', username=session['username'])
     return redirect(url_for('/'))
+=======
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('home.html')
+>>>>>>> master
 
+
+@app.route('/flooper/<username>', methods=['GET'])
+def pag_principal(username):
+    print(username)
+    if 'loggedin' in session:
+        print("entro al if del login")
+        return redirect(url_for('login', username=session['username']))
+    return render_template('home.html')
+
+<<<<<<< HEAD
+=======
 # Login - Register -Logout#
 
 
+>>>>>>> master
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ""
+    print("printed")
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
+<<<<<<< HEAD
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(
             'SELECT * FROM usuarios WHERE username = % s AND password = % s', (username, password, ))
+=======
+        cursor = mysql.connection.cursor()  # MySQLdb.cursors.DictCursor
+        cursor.execute(
+            'SELECT * FROM usuarios WHERE username = % s AND password = % s', (username, password))
+>>>>>>> master
         account = cursor.fetchone()
+        print(username)
+        print(password)
         if account:
             session['loggedin'] = True
             session['ID'] = account['ID']
             session['username'] = account['username']
             msg = 'Login exitoso!'
-            return render_template('index.html', msg=msg)
+            print(msg)
+            return "Login completado con exito"
         else:
             msg = 'Usuario o contraseña incorrectos!'
+            print(msg)
     return render_template('login.html', msg=msg)
 
 
@@ -64,7 +94,11 @@ def register():
         email = request.form['Email']
         cursor = mysql.connection.cursor()  # MySQLdb.cursors.DictCursor
         cursor.execute(
+<<<<<<< HEAD
             'SELECT * FROM usuarios WHERE username = %s', (username,))
+=======
+            'SELECT * FROM accounts WHERE username = %s', (username,))
+>>>>>>> master
         account = cursor.fetchone()
         # If account exists show error and validation checks
         if account:
@@ -77,7 +111,11 @@ def register():
             msg = 'Porfavor completa todos los campos del formulario'
         else:
             cursor.execute(
+<<<<<<< HEAD
                 'INSERT INTO usuarios (username, password, Email) VALUES(%s, %s, %s)', (username, password, email))
+=======
+                'INSERT INTO usuarios (username, password, email) VALUES(%s, %s, %s)', (username, password, email))
+>>>>>>> master
         mysql.connection.commit()
         cursor.close()
         return "Registro completado con exito."

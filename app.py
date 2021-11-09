@@ -1,14 +1,10 @@
 import MySQLdb
 from flask import Flask, config, jsonify, request, session, redirect, url_for
 from flask.templating import render_template
-from flask_login import LoginManager
 from flask_mysqldb import MySQL
 from config import config
 
-
 app = Flask(__name__)
-
-
 mysql = MySQL(app)
 
 #Home#
@@ -21,8 +17,8 @@ def home():
     return render_template('index.html', msg='')
 
 
-@app.route('/Flooper', methods=['GET'])
-def pag_principal():
+@app.route('/Flooper/<username>', methods=['GET'])
+def pag_principal(username):
     if 'loggedin' in session:
         return render_template('home.html', username=session['username'])
     return redirect(url_for('/'))
@@ -30,22 +26,19 @@ def pag_principal():
 # Login - Register -Logout#
 
 
-login_manager = LoginManager()
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ""
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        username = request.form['Nombre']
-        password = request.form['Contraseña']
+        username = request.form['username']
+        password = request.form['password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(
-            'SELECT * FROM usuarios WHERE Nombre = % s AND Contraseña = % s', (username, password, ))
+            'SELECT * FROM usuarios WHERE username = % s AND password = % s', (username, password, ))
         account = cursor.fetchone()
         if account:
             session['loggedin'] = True
-            session['id'] = account['id']
+            session['ID'] = account['ID']
             session['username'] = account['username']
             msg = 'Login exitoso!'
             return render_template('index.html', msg=msg)
@@ -58,7 +51,7 @@ def login():
 def logout():
     session.pop('loggedin', None)
     session.pop('ID', None)
-    session.pop('Nombre', None)
+    session.pop('username', None)
     return redirect(url_for('/'))
 
 
@@ -66,12 +59,12 @@ def logout():
 def register():
     msg = ''
     if request.method == 'POST':
-        username = request.form['Nombre']
-        password = request.form['Contraseña']
+        username = request.form['username']
+        password = request.form['password']
         email = request.form['Email']
         cursor = mysql.connection.cursor()  # MySQLdb.cursors.DictCursor
         cursor.execute(
-            'SELECT * FROM accounts WHERE Nombre = %s', (username,))
+            'SELECT * FROM usuarios WHERE username = %s', (username,))
         account = cursor.fetchone()
         # If account exists show error and validation checks
         if account:
@@ -84,7 +77,7 @@ def register():
             msg = 'Porfavor completa todos los campos del formulario'
         else:
             cursor.execute(
-                'INSERT INTO usuarios (Nombre, Contraseña, email) VALUES(%s, %s, %s)', (username, password, email))
+                'INSERT INTO usuarios (username, password, Email) VALUES(%s, %s, %s)', (username, password, email))
         mysql.connection.commit()
         cursor.close()
         return "Registro completado con exito."

@@ -15,7 +15,9 @@
     <div>
       <div class="nav-Color ps-5">
         <li>
-          <a class="navbar-brand nav-Color" href="/"><img src="../static/img/nav-icon.png" alt="" width="50" id="Nav-brand" /></a>
+          <a class="navbar-brand nav-Color" href="/"
+            ><img src="../static/img/nav-icon.png" alt="" width="50" id="Nav-brand"
+          /></a>
         </li>
         <li><a href="/login"> Inicio de sesion </a></li>
         <li style="float: right"><a class="active pe-5" href="#">About</a></li>
@@ -26,8 +28,8 @@
         <div class="fw-bolder fw-Italic"><p size="40px" class="title-flooper title-background">Ingresar</p></div>
         <form action="{{ url_for('login') }}" method="POST" class="login-form" id="log_form">
           <div class="msg">{{ msg }}</div>
-          <input type="text" placeholder="Usuario" name="Nombre" />
-          <input type="password" placeholder="Contraseña" name="Contraseña" />
+          <input type="text" placeholder="Ingresar Usuario" name="username" />
+          <input type="password" placeholder="Introduzca su Contraseña" name="password" />
           <button type="submit">Ingresar</button>
           <p class="message" id="desplegar">No tienes cuenta? <a href="{{url_for('register')}}">Crear una cuenta</a></p>
           <hr />
@@ -59,15 +61,18 @@
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this);
-        var url = form.attr("action");
-        alert(url);
+        var url = "/login";
+        console.log(url);
 
         $.ajax({
           type: "POST",
           url: url,
           data: form.serialize(), // serializes the form's elements.
           success: function (data) {
-            alert(data); // show response from the php script.
+            window.location.href = "/Flooper/" + $('input[name="username"]').val();
+          },
+          error: function (error) {
+            alert(error);
           },
         });
       });

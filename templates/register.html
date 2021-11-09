@@ -63,13 +63,13 @@
 
         var form = $(this);
         var url = form.attr("action");
-        alert(url);
+        console.log(url);
         $.ajax({
           type: "POST",
           url: url,
           data: form.serialize(), // serializes the form's elements.
           success: function (data) {
-            alert(data); // show response from the php script.
+            window.location.href = "/home?username=" + $('input[name="username"]').val();
           },
         });
       });

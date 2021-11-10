@@ -9,11 +9,14 @@
   text-align: center;
   width: 15rem;
   height: 17rem;
-  border: 5px solid #ffffff;
+  border: 5px solid #b6b6b6;
   border-radius: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.timer-cont{
+  padding:0px;
 }
 .row {
   width: 100%;

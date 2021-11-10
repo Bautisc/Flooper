@@ -1,0 +1,37 @@
+.tareas{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#añadir{
+    color:#ffc107;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.enviar {
+    color:#08b857;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    text-align:left;
+    display: flex;
+    justify-content:left;
+    align-items:left;
+    padding-top:4px;
+}
+#enviar_tarea{
+    color:black;
+}
+.inputs {
+    padding-top:4px;
+}
+
+
+

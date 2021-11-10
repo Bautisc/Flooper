@@ -14,7 +14,9 @@
 
     <!--CSS IMPORTS-->
     <link rel="stylesheet" href="../static/css/index.css"/>
-    <link rel="stylesheet" href="../static/css/timer.css">
+    <link rel="stylesheet" href="../static/css/timer.css"/>
+    <link rel="stylesheet" href="../static/css/tareas.css" />
+
 
     <!--BOOSTRAP ICONS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
@@ -62,7 +64,37 @@
       </div>
     </div>
 
-    <!--FOOTER-->
+    <!--TAREAS-->
+    <div class="tareas">
+      <div>
+        <form action="home" method="post" name="post">
+          <label for="post" id="añadir">
+            Añadir tarea:
+          </label>
+          <div class="inputs">
+            <input imaxlength="145" name="message" size="50" type="text" value="">
+              {% for message in messages %}
+              <li> {{ message[1] }}</li>
+              {% endfor %}
+          </div>
+          <div class="inputs">
+            <input id="enviar_tarea" name="enviar_tarea" type="submit" value="Enviar">
+          </div>
+        </form>
+        <div>
+          <form class="enviar">
+            <label for="enviar">
+              Tareas pendientes:
+            </label>
+            <div>
+              {% for message in friends_messages %}
+              <li> {{ message[0] }}: {{ message[2] }}</li>
+              {% endfor %}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!--BOOTSTRAP JAVASCRIPT-->
     <!-- jQuery, Popper.js , Bootstrap JS -->

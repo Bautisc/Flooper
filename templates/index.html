@@ -18,6 +18,16 @@
     <link rel="shortcut icon" href="../static/img/nav-icon.png" alt="" width="100" />
 
     <!--CSS IMPORTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha512-9BwLAVqqt6oFdXohPLuNHxhx36BVj5uGSGmizkmGkgl3uMSgNalKc/smum+GJU/TTP0jy0+ruwC3xNAk3F759A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="../static/css/index.css" />
     <link rel="stylesheet" href="../static/css/timer.css" />
     <link rel="stylesheet" href="../static/css/tareas.css" />
@@ -93,39 +103,17 @@
         <a href="/"><i class="fas fa-redo-alt fa-2x"></i></a>
       </div>
     </div>
-    
-    <!--TAREAS-->
-    <div class="tareas">
-      <div>
-        <form action="home" method="post" name="post">
-          <label for="post" id="añadir">
-            Añadir tarea:
-          </label>
-          <div class="inputs">
-            <input imaxlength="145" name="message" size="50" type="text" value="">
-              {% for message in messages %}
-              <li> {{ message[1] }}</li>
-              {% endfor %}
-          </div>
-          <div class="inputs">
-            <input id="enviar_tarea" name="enviar_tarea" type="submit" value="Enviar">
-          </div>
-        </form>
-        <div>
-          <form class="enviar">
-            <label for="enviar">
-              Tareas pendientes:
-            </label>
-            <div>
-              {% for message in friends_messages %}
-              <li> {{ message[0] }}: {{ message[2] }}</li>
-              {% endfor %}
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
+    <!--TAREAS-->
+    <form>
+      <input type="text" class="input-tareas" />
+      <button class="tareas-btn" type="submit">
+        <i class="fas fa-plus-square"></i>
+      </button>
+    </form>
+    <div class="container-tareas">
+      <ul class="lista-tareas"></ul>
+    </div>
     <!--BOOTSTRAP JAVASCRIPT-->
     <!-- jQuery, Popper.js , Bootstrap JS -->
     <script
@@ -145,6 +133,7 @@
     ></script>
     <!--PAGE JAVASCRIPT-->
     <script src="../static/js/timer.js"></script>
+    <script src="../static/js/tareas.js"></script>
     <script src="https://kit.fontawesome.com/996973c893.js"></script>
   </body>
 </html>

@@ -18,8 +18,8 @@ function start_timer() {
   click_sound.play();
 
   // Change the minutes and seconds to starting time
-  session_minutes = 24;
-  session_seconds = 59;
+  session_minutes = 00;
+  session_seconds = 03;
   session_count = 4;
   // Add the seconds and minutes to the page
   document.getElementById("minutes").innerHTML = session_minutes;

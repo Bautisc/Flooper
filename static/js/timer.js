@@ -19,7 +19,11 @@ function start_timer() {
 
   // Change the minutes and seconds to starting time
   session_minutes = 00;
+<<<<<<< HEAD
   session_seconds = 03;
+=======
+  session_seconds = 01;
+>>>>>>> 3481897de3e25fcfd5d35e49d9e18e8e46af20e8
   session_count = 4;
   // Add the seconds and minutes to the page
   document.getElementById("minutes").innerHTML = session_minutes;

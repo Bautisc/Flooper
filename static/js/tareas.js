@@ -5,6 +5,7 @@ var lista_Tareas = document.querySelector(".lista-tareas");
 
 //Eventos
 tareas_Btn.addEventListener('click', AgregarTarea);
+lista_Tareas.addEventListener('click', completarBorrar)
 
 //Funciones
 function AgregarTarea(event){
@@ -36,3 +37,23 @@ function AgregarTarea(event){
     // Limpiar valor del input-tareas
     input_Tareas.value = "";
 }
+
+function completarBorrar(e){
+    const item = e.target;
+    //Borrar tarea
+    if(item.classList[0] === 'eliminar-btn'){
+        const tarea = item.parentElement;
+
+        tarea.classList.add('fall')
+        tarea.addEventListener('transitionend', function(){
+            tarea.remove()
+        })
+    }
+    //Completar tarea
+    if (item.classList[0] === 'completar-btn') {
+        const tarea = item.parentElement;
+        tarea.classList.toggle("completada");
+ }   
+}
+
+ 

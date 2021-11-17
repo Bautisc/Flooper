@@ -49,6 +49,7 @@ form button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.5s ease;
 }
 
 .tareas li {
@@ -73,4 +74,48 @@ form button:hover {
 
 .item-tareas {
   padding: 0rem 0.5rem;
+}
+/*Solucionar problema al clickear en un boton*/
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.completada {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+select {
+  color: #ff8b07;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.selector::after {
+  content: "\25BC";
+  position: absolute;
+  background: #ff8b07;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
 }

@@ -110,12 +110,18 @@ select {
   padding: 1rem;
 }
 
-.selector::after {
+.select::after {
   content: "\25BC";
   position: absolute;
   background: #ff8b07;
+  color: white;
   top: 0;
   right: 0;
   padding: 1rem;
   pointer-events: none;
+}
+
+.select:hover::after {
+  background: white;
+  color: #ff8b07;
 }

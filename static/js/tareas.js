@@ -2,10 +2,12 @@
 var input_Tareas = document.querySelector(".input-tareas");
 var tareas_Btn = document.querySelector(".tareas-btn");
 var lista_Tareas = document.querySelector(".lista-tareas");
+var filtros = document.querySelector(".filtros-tareas")
 
 //Eventos
 tareas_Btn.addEventListener('click', AgregarTarea);
 lista_Tareas.addEventListener('click', completarBorrar)
+filtros.addEventListener('click', filtroTareas)
 
 //Funciones
 function AgregarTarea(event){
@@ -54,6 +56,30 @@ function completarBorrar(e){
         const tarea = item.parentElement;
         tarea.classList.toggle("completada");
  }   
+}
+function filtroTareas(e){
+    const tareas = lista_Tareas.childNodes;
+    tareas.forEach(function(tareas){
+        switch (e.target.value) {
+            case "todas":
+                tareas.style.display = "flex"
+                break;
+            case "completas":
+                if(tareas.classList.contains('completada')){
+                    tareas.style.display = "flex";
+                } else {
+                    tareas.style.display = "none"
+                }
+                break
+            case "incompletas":
+                if(!tareas.classList.contains('completada')){
+                    tareas.style.display = "flex";
+                }  else {
+                    tareas.style.display = "none"
+                }
+                break
+        }
+    })
 }
 
  

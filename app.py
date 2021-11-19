@@ -18,7 +18,7 @@ def index():
     return render_template('index.html', msg='')
 
 
-@app.route('/home', methods=['GET','POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     return render_template('home.html')
 
@@ -95,89 +95,6 @@ def register():
         cursor.close()
         return "Registro completado con exito."
     return render_template('register.html', msg=msg)
-
-    #Tareas #
-
-
-@app.route('/Tareas', methods=['GET'])
-def Tareas():
-    try:
-        cursor = mysql.connection.cursor()
-        sql = "SELECT id_tarea, Titulo, Estado FROM tareas"
-        cursor.execute(sql)
-        datos = cursor.fetchall()
-        tareas = []
-        for fila in datos:
-            tarea = {'id_tarea': fila[0], 'Titulo': fila[1], 'Estado': fila[2]}
-            tareas.append(tarea)
-        return jsonify({'Tarea': tareas, 'mensaje': "Tareas listadas."})
-    except Exception as ex:
-        return jsonify({'mensaje': "Error"})
-
-
-@app.route('/Tareas/<id_tarea>', methods=['GET'])
-def leer_tareas(id_tarea):
-    try:
-        cursor = mysql.connection.cursor()
-        sql = "SELECT id_tarea, Titulo, Estado FROM tareas WHERE id_tarea = '{0}'".format(
-            id_tarea)
-        cursor.execute(sql)
-        datos = cursor.fetchone()
-        if datos != None:
-            tareas = {'id_tarea': datos[0],
-                      'Titulo': datos[1], 'Estado': datos[2]}
-            return jsonify({'Tarea': tareas, 'mensaje': "Tarea encontrada."})
-        else:
-            return jsonify({'mensaje': "Tarea no encontrada"})
-    except Exception as ex:
-        return jsonify({'mensaje': "Error"})
-
-# Metodo POST
-
-
-@app.route('/Tareas', methods=['POST'])
-def registrar_Tarea():
-    # print(request.json)
-    try:
-        cursor = mysql.connection.cursor()
-        _json = request.json
-        sql = """INSERT INTO tareas (id_tarea, Titulo, Estado) 
-        VALUES ({0},'{1}','{2}')""".format(_json['id_tarea'], _json['Titulo'], _json['Estado'])
-        cursor.execute(sql)
-        mysql.connection.commit()
-        return jsonify({'mensaje': "Tarea registrada."})
-    except Exception as ex:
-        return jsonify({'mensaje': "Error"})
-
-    # Metodo DELETE
-
-
-@app.route('/Tareas/<id_tarea>', methods=['DELETE'])  # Funcionando
-def eliminar_tarea(id_tarea):
-    try:
-        cursor = mysql.connection.cursor()
-        sql = "DELETE FROM tareas WHERE id_tarea = '{0}'".format(id_tarea)
-        cursor.execute(sql)
-        mysql.connection.commit()
-        return jsonify({'mensaje': 'Tarea eliminada'})
-    except Exception as ex:
-        return jsonify({'mensaje': 'Error'})
-
- # Metodo PUT
-
-
-@app.route('/Tareas/<id_tarea>', methods=['PUT'])  # Funcionando
-def actualizar_tarea(id_tarea):
-    try:
-        cursor = mysql.connection.cursor()
-        _json = request.json
-        sql = """UPDATE tareas SET Titulo = '{0}', Estado = '{1}' WHERE id_tarea = '{2}'""".format(
-            _json['Titulo'], _json['Estado'], id_tarea)
-        cursor.execute(sql)
-        mysql.connection.commit()
-        return jsonify({'mensaje': 'Tarea actualizada'})
-    except Exception as ex:
-        return jsonify({'mensaje': 'Error'})
 
 
 def pagina_no_encontrada(error):

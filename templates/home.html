@@ -21,13 +21,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      integrity="sha512-9BwLAVqqt6oFdXohPLuNHxhx36BVj5uGSGmizkmGkgl3uMSgNalKc/smum+GJU/TTP0jy0+ruwC3xNAk3F759A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <link rel="stylesheet" href="../static/css/index.css" />
     <link rel="stylesheet" href="../static/css/timer.css" />
     <link rel="stylesheet" href="../static/css/tareas.css" />
@@ -50,30 +43,6 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="bi bi-person-video"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/login">Ingresar</a>
-              <a class="dropdown-item" href="/register">Registrarse</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Has olvidado tu contraseña?</a>
-            </div>
-          </li>
-        </ul>
-      </div>
     </nav>
 
     <!--TIMER-->
@@ -100,7 +69,7 @@
         <button class="btn" onclick="start_timer()">
           <i class="fas fa-play fa-2x"></i>
         </button>
-        <a href="/"><i class="fas fa-redo-alt fa-2x"></i></a>
+        <a href="/home"><i class="fas fa-redo-alt fa-2x"></i></a>
       </div>
     </div>
 
@@ -110,17 +79,18 @@
       <button class="tareas-btn" type="submit">
         <i class="fas fa-plus-square"></i>
       </button>
-      <div class="select">
+      <!-- <div class="select">
         <select name="tareas" class="filtros-tareas">
-          <option value="todas">Tareas</option>
+          <option value="todas">Todas las tareas</option>
           <option value="completas">Completas</option>
           <option value="incompletas">Incompletas</option>
         </select>
-      </div>
+      </div>-->
     </form>
     <div class="container-tareas">
       <ul class="lista-tareas"></ul>
     </div>
+
     <!--BOOTSTRAP JAVASCRIPT-->
     <!-- jQuery, Popper.js , Bootstrap JS -->
     <script

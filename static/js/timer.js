@@ -5,7 +5,7 @@ var session_count = 00;
 
 // Audio files
 var click_sound = new Audio("static/mp3/click.mp3");
-var bell = new Audio("static/mp3/bell.mp3");
+var bell = new Audio("../static/mp3/bell.mp3");
 
 // Starting template for the timer
 function template() {
@@ -57,10 +57,11 @@ function start_timer() {
         // Clears the interval i.e. stops the counter
         clearInterval(minutes_interval);
         clearInterval(seconds_interval);
-
+        session_count = session_count -1;
+        document.getElementById("sessions").innerHTML = "Sesión: " + session_count;
         // Add the message to the html
         document.getElementById("done").innerHTML =
-          "Session completed!! Take a break";
+          "Sesión completada!! Toma un descanso";
 
         // Make the html message div visible
         document.getElementById("done").classList.add("show_message");

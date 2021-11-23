@@ -1,5 +1,5 @@
 // Required variables
-var session_seconds = "00";
+var session_seconds = 00;
 var session_minutes = 25;
 var session_count = 00;
 
@@ -20,7 +20,7 @@ function start_timer() {
   // Change the minutes and seconds to starting time
   session_minutes = 24;
   session_seconds = 59;
-  session_count = 4;
+  session_count = 1;
   // Add the seconds and minutes to the page
   document.getElementById("minutes").innerHTML = session_minutes;
   document.getElementById("seconds").innerHTML = session_seconds;
@@ -36,7 +36,7 @@ function start_timer() {
     session_count = 1;
     if (session_seconds <= 0) {
       if(session_minutes <= 0) {
-        session_count = session_count - 1;
+        session_count = session_count -1;
       }
     }
   }

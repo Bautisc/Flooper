@@ -54,8 +54,8 @@ INSERT INTO `tareas` (`id_tarea`, `Titulo`, `Estado`) VALUES
 
 CREATE TABLE `usuarios` (
   `ID` int(9) NOT NULL,
-  `Nombre` text NOT NULL,
-  `Contraseña` varchar(16) NOT NULL,
+  `username` text NOT NULL,
+  `password` varchar(16) NOT NULL,
   `Email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

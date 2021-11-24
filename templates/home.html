@@ -74,6 +74,22 @@
     </div>
 
     <!--TAREAS-->
+    <form>
+      <input type="text" class="input-tareas" />
+      <button class="tareas-btn" type="submit">
+        <i class="fas fa-plus-square"></i>
+      </button>
+      <div class="select">
+        <select name="tareas" class="filtros-tareas">
+          <option value="todas">Todas las tareas</option>
+          <option value="completas">Completas</option>
+          <option value="incompletas">Incompletas</option>
+        </select>
+      </div>
+    </form>
+    <div class="container-tareas">
+      <ul class="lista-tareas"></ul>
+    </div>
 
     <!--BOOTSTRAP JAVASCRIPT-->
     <!-- jQuery, Popper.js , Bootstrap JS -->
@@ -94,6 +110,7 @@
     ></script>
     <!--PAGE JAVASCRIPT-->
     <script src="../static/js/timer.js"></script>
+    <script src="../static/js/tareas.js"></script>
     <script src="https://kit.fontawesome.com/996973c893.js"></script>
   </body>
 </html>

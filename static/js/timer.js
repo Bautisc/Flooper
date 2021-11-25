@@ -1,5 +1,5 @@
 // Required variables
-var session_seconds = "00";
+var session_seconds = 00;
 var session_minutes = 25;
 var session_count = 00;
 

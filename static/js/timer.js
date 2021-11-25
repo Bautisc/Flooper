@@ -67,11 +67,8 @@ function start_timer() {
         document.getElementById("done").classList.add("show_message");
         // PLay the bell sound to tell the end of session
         bell.play();
-<<<<<<< HEAD
-=======
 
         // Cosas andres
->>>>>>> bautibranch
         rest = !rest;
         if (!rest){
           session_minutes = 25;

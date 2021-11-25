@@ -18,15 +18,9 @@ function start_timer() {
   click_sound.play();
 
   // Change the minutes and seconds to starting time
-<<<<<<< HEAD
   session_minutes = 24;
   session_seconds = 59;
-  session_count = 4;
-=======
-  session_minutes = 00;
-  session_seconds = 03;
   session_count = 0;
->>>>>>> d6ecd32cb4f85f59facbf347f8facf751a229988
   // Add the seconds and minutes to the page
   document.getElementById("minutes").innerHTML = session_minutes;
   document.getElementById("seconds").innerHTML = session_seconds;
@@ -73,6 +67,11 @@ function start_timer() {
         document.getElementById("done").classList.add("show_message");
         // PLay the bell sound to tell the end of session
         bell.play();
+<<<<<<< HEAD
+=======
+
+        // Cosas andres
+>>>>>>> bautibranch
         rest = !rest;
         if (!rest){
           session_minutes = 25;

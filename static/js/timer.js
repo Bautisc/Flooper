@@ -2,6 +2,7 @@
 var session_seconds = "00";
 var session_minutes = 25;
 var session_count = 00;
+var comenzo = false;
 
 // Audio files
 var click_sound = new Audio("static/mp3/click.mp3");
@@ -14,11 +15,22 @@ function template() {
   document.getElementById("sessions").innerHTML = session_count;
 }
 
+
+function setTimerPomodoro(){
+  session_minutes = 25;
+  document.getElementById("minutes").innerHTML = session_minutes;
+}
+
+function setTimerFlowState(){
+  session_minutes = 40;
+  document.getElementById("minutes").innerHTML = session_minutes;
+}
+
 function start_timer() {
   click_sound.play();
 
   // Change the minutes and seconds to starting time
-  session_minutes = 24;
+  session_minutes = session_minutes -1;
   session_seconds = 59;
   session_count = 0;
   // Add the seconds and minutes to the page
@@ -26,7 +38,7 @@ function start_timer() {
   document.getElementById("seconds").innerHTML = session_seconds;
   document.getElementById("sessions").innerHTML = "Sesión: " + session_count;
   // Start the countdown
-  var minutes_interval = setInterval(minutesTimer, 60000);
+  var minutes_interval = setInterval(minutesTimer, 1000*session_minutes);
   var seconds_interval = setInterval(secondsTimer, 1000);
   var rest = false;
 
@@ -67,11 +79,8 @@ function start_timer() {
         document.getElementById("done").classList.add("show_message");
         // PLay the bell sound to tell the end of session
         bell.play();
-<<<<<<< HEAD
-=======
 
         // Cosas andres
->>>>>>> bautibranch
         rest = !rest;
         if (!rest){
           session_minutes = 25;

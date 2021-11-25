@@ -28,6 +28,8 @@ function start_timer() {
   // Start the countdown
   var minutes_interval = setInterval(minutesTimer, 60000);
   var seconds_interval = setInterval(secondsTimer, 1000);
+  var rest = false;
+
 
   // Functions
 
@@ -36,7 +38,7 @@ function start_timer() {
     session_count = 1;
     if (session_seconds <= 0) {
       if(session_minutes <= 0) {
-        session_count = session_count - 1;
+        session_count = session_count + 1;
       }
     }
   }
@@ -49,27 +51,33 @@ function start_timer() {
   function secondsTimer() {
     session_seconds = session_seconds - 1;
     document.getElementById("seconds").innerHTML = session_seconds;
-
     // Check if the seconds and minutes counter has reached 0
     // If reached 0 then end the session
     if (session_seconds <= 0) {
-      if (session_minutes <= 0) {
+      session_minutes = session_minutes - 1;
+      session_seconds = 60; 
+      if (session_minutes < 0) {
         // Clears the interval i.e. stops the counter
-        clearInterval(minutes_interval);
-        clearInterval(seconds_interval);
-        session_count = session_count -1;
+        session_count = session_count + 1;
         document.getElementById("sessions").innerHTML = "Sesión: " + session_count;
         // Add the message to the html
         document.getElementById("done").innerHTML =
           "Sesión completada!! Toma un descanso";
-
         // Make the html message div visible
         document.getElementById("done").classList.add("show_message");
         // PLay the bell sound to tell the end of session
         bell.play();
+
+        // Cosas andres
+        rest = !rest;
+        if (!rest){
+          session_minutes = 25;
+        }
+        else{
+          session_minutes = 5;
+        }
       } 
       // Reset the session seconds to 60
-      session_seconds = 60;
     }
   }
 }

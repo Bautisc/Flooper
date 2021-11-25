@@ -10,14 +10,15 @@ body {
 }
 .navbar {
   background-color: #ffc107;
-  padding-left: 150px;
+  padding-left: 9%;
 }
 #navicon2 {
   width: 120px;
 }
-.nav-item{
+.nav-item {
   padding-right: 200px;
 }
+
 /*Timer container*/
 .timer-cont {
   padding: 5%;
@@ -28,4 +29,8 @@ body {
   background-color: #020e13;
   height: 5%;
   float: right;
+}
+
+asdasd {
+  color: #144129;
 }

@@ -73,3 +73,13 @@ function start_timer() {
     }
   }
 }
+
+//Cambiar background
+
+$('.pomodoro').on('click', function(){
+  $('body').css('background-color','#041922' )
+})
+
+$('.flowState').on('click', function(){
+  $('body').css('background-color','#263238' )
+})

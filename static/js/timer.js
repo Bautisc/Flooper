@@ -32,15 +32,15 @@ function start_timer() {
   click_sound.play();
 
   // Change the minutes and seconds to starting time
-<<<<<<< HEAD
+HEAD
   session_minutes = 00;
   session_seconds = 3;
 
-=======
+
   session_minutes = session_minutes -1;
   session_seconds = 59;
   session_count = 0;
->>>>>>> 150fea2c06f2887bc5a5073be0b317ff85d3416e
+
   // Add the seconds and minutes to the page
   document.getElementById("minutes").innerHTML = session_minutes;
   document.getElementById("seconds").innerHTML = session_seconds;

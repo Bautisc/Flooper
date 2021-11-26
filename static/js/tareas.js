@@ -83,3 +83,16 @@ function filtroTareas(e){
 }
 
  
+//Guardar las tareas en el cache
+
+function guardarTareas(tarea){
+    //Con esto se verifica si ya se tienen tareas guardadas
+    let tareas;
+    if(localStorage.getItem('tareas') === null){
+        tareas = [];
+    }else{
+        tareas = JSON.parse(localStorage.getItem('tareas'));
+    }
+    tareas.push(tarea)
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+}

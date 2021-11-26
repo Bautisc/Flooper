@@ -7,48 +7,31 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../static/css/form.css" />
+    <link rel="stylesheet" href="../static/css/login.css" />
   </head>
 
   <body>
     <!--menú-->
     <div>
-      <ul>
-        <div>
-          <li>
-            <a class="navbar-brand nav-Color" href="/"><img src="../static/img/nav-icon2.png" alt="" width="100" /></a>
-          </li>
-          <li><a href="/login"> Inicio de sesion </a></li>
-          <li style="float: right"><a class="active" href="#">About</a></li>
-        </div>
-      </ul>
+      <div class="nav-Color ps-5">
+        <li>
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/"><img src="../static/img/nav-icon2.png" id="navicon2" /></a>
+        </li>
+      </div>
     </div>
     <div class="login-page">
       <div class="register-form">
         <form action="{{ url_for('register') }}" class="form" id="registerForm1" method="POST">
           <p size="40px" class="title-flooper title-background">Registrarse</p>
-          <input type="text" placeholder="Nombre de Usuario" name="Nombre" />
-          <input type="password" placeholder="Contraseña" name="Contraseña" />
+          <input type="text" placeholder="Nombre de Usuario" name="username" />
+          <input type="password" placeholder="Contraseña" name="password" />
           <input type="email" placeholder="Correo electronico" name="Email" />
           <button type="submit">Crear cuenta</button>
           <p class="message">Ya tienes una cuenta? <a href="{{url_for('login')}}">Iniciar sesión</a></p>
         </form>
       </div>
     </div>
-
-    <footer>
-      <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark nav-Color">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav nav-Color">
-              <li class="nav-item">
-                <a class="nav-link active nav-Color" aria-current="page" href="/">Home</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </footer>
     <!--jQuery-->
 
     <script
@@ -63,13 +46,13 @@
 
         var form = $(this);
         var url = form.attr("action");
-        alert(url);
+        console.log(url);
         $.ajax({
           type: "POST",
           url: url,
           data: form.serialize(), // serializes the form's elements.
           success: function (data) {
-            alert(data); // show response from the php script.
+            window.location.href = "/home?username=" + $('input[name="username"]').val();
           },
         });
       });

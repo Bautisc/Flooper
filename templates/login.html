@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Flooper</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../static/css/login.css" />
-    <!--PAGE ICON-->
-    <link rel="shortcut icon" href="../static/img/nav-icon.png" alt="" width="100" />
-  </head>
 
-  <body>
-    <!--menú-->
-    <div>
-      <div class="nav-Color ps-5">
-        <li>
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="/"><img src="../static/img/nav-icon2.png" id="navicon2" /></a>
-        </li>
-      </div>
+<head>
+  <title>Flooper</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../static/css/login.css" />
+  <!--PAGE ICON-->
+  <link rel="shortcut icon" href="../static/img/nav-icon.png" alt="" width="100" />
+</head>
+
+<body>
+  <!--menú-->
+  <div>
+    <div class="nav-Color ps-5">
+      <li>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="/"><img src="../static/img/nav-icon2.png" id="navicon2" /></a>
+      </li>
     </div>
-    <div class="login-page">
-      <div class="form" method="POST">
-        <div class="fw-bolder fw-Italic"><p size="40px" class="title-flooper title-background">Ingresar</p></div>
-        <form action="{{ url_for('login') }}" method="POST" class="login-form" id="log_form">
-          <div class="msg">{{ msg }}</div>
-          <input type="text" placeholder="Ingresar Usuario" name="username" />
-          <input type="password" placeholder="Introduzca su Contraseña" name="password" />
-          <button type="submit">Ingresar</button>
-          <p class="message" id="desplegar">No tienes cuenta? <a href="{{url_for('register')}}">Crear una cuenta</a></p>
-          <hr />
-        </form>
+  </div>
+  <div class="login-page">
+    <div class="form" method="POST">
+      <div class="fw-bolder fw-Italic">
+        <p size="40px" class="title-flooper title-background">Ingresar</p>
       </div>
+      <form action="{{ url_for('login') }}" method="POST" class="login-form" id="log_form">
+        <div class="msg">{{ msg }}</div>
+        <input type="text" placeholder="Ingresar Usuario" name="username" />
+        <input type="password" placeholder="Introduzca su Contraseña" name="password" />
+        <button type="submit">Ingresar</button>
+        <p class="message" id="desplegar">No tienes cuenta? <a href="{{url_for('register')}}">Crear una cuenta</a></p>
+        <hr />
+      </form>
     </div>
-    <!--jQuery-->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $("#log_form").submit(function (e) {
-        e.preventDefault(); // avoid to execute the actual submit of the form.
+  </div>
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $("#log_form").submit(function (e) {
+      e.preventDefault(); // avoid to execute the actual submit of the form.
 
-        var form = $(this);
-        var url = "/login";
-        console.log(url);
+      var form = $(this);
+      var url = "/login";
+      console.log(url);
 
-        $.ajax({
-          type: "POST",
-          url: url,
-          data: form.serialize(),
-          success: function (data) {
-            window.location.href = "/home?username=" + $('input[name="username"]').val();
-          },
-          error: function (error) {
-            alert(error);
-          },
-        });
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: form.serialize(),
+        success: function (data) {
+          window.location.href = "/home?username=" + $('input[name="username"]').val();
+        },
+        error: function (error) {
+          alert(error);
+        },
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>

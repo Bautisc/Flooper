@@ -34,3 +34,11 @@ body {
 asdasd {
   color: #144129;
 }
+.links{
+  color: #041922;
+  font-weight: bold;
+}
+.links:hover{
+  color: #ffc107;
+
+}
